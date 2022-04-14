@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:rxdart/rxdart.dart';
 import 'package:http/http.dart' as http;
-import 'package:student_ui/NEW/BLoC/Validators.dart';
+import 'package:student_ui/Sports/BLoC/Validators.dart';
 
 class LoginBLoC with Validators{
   //  stream controllers

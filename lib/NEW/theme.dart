@@ -5,14 +5,19 @@ class CustomTheme
 {
   const CustomTheme();
 
-  static const Color Coral1= Color(0xFFe07a5f);
-  static const Color Coral2= Color(0xFFf2cc8f);
-  static const Color White=Color(0xFFeef5d7);
+  //  0xFF  constant for color
+
+  static const Color Coral1= Color(0xffffa47a);
+  static const Color Coral2= Color(0xffffc09b);
+  static const Color Coral3= Color(0xffffdec9);
+  static const Color Coral4=Color(0xfffffbf1);
+  static const Color Coral5=Color(0xfffffff0);
 
 
-  static const Color Grey1=Color(0xFF4f6367);
-  static const Color Grey2=Color(0xFF7a9e9f);
-  static const Color Grey3=Color(0xeacfcfcf);
+  static const Color Grey1=Color(0xFF0a2342);
+  static const Color Grey2=Color(0xFF153b50);
+  static const Color Grey3=Color(0xFF73877b);
+  static const Color Grey4=Color(0xfff1f2eb);
 
 
   static const Color Blue1=Color(0xFF0D47A1);

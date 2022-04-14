@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:student_ui/NEW/BLoC/Login_BloC.dart';
-import 'package:student_ui/NEW/theme.dart';
-import '../Home/Home.dart';
-import 'Signup.dart';
+import 'package:student_ui/NEW/Screens/Home/Home.dart';
+import 'package:student_ui/NEW/Screens/Registration/Signup.dart';
+import '../../theme.dart';
 
 class Loginpg extends StatefulWidget {
   @override
@@ -24,9 +24,9 @@ class _LoginpgState extends State<Loginpg> {
     //  calling bloc class
     final bloc = Provider.of<LoginBLoC>(context, listen: false);
 
-    return new WillPopScope(
+    return WillPopScope(
       child: Scaffold(
-        backgroundColor: CustomTheme.Blue4,
+        backgroundColor: Colors.white,
         body: Container(
           margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
           child: SingleChildScrollView(
@@ -46,9 +46,9 @@ class _LoginpgState extends State<Loginpg> {
                 Container(
                   padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: CustomTheme.Coral3,
                     borderRadius: BorderRadius.circular(5),
-                    // border: Border.all(color: CustomTheme.Blue1),
+                    border: Border.all(color: CustomTheme.Grey2),
                   ),
                   child: Column(
                     children: [
@@ -78,13 +78,13 @@ class _LoginpgState extends State<Loginpg> {
                               contentPadding: EdgeInsets.symmetric(horizontal: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -96,7 +96,7 @@ class _LoginpgState extends State<Loginpg> {
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -118,7 +118,7 @@ class _LoginpgState extends State<Loginpg> {
                           child: TextFormField(
                             //  to set entered pswd
                             onChanged: bloc.changeLpswd,
-                            controller: emailController,
+                            controller: pswdController,
                             obscureText: _isObscure,
                             keyboardType: TextInputType.visiblePassword,
                             cursorColor: CustomTheme.Blue1,
@@ -133,13 +133,13 @@ class _LoginpgState extends State<Loginpg> {
                               contentPadding: EdgeInsets.symmetric(horizontal: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -151,7 +151,7 @@ class _LoginpgState extends State<Loginpg> {
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -177,7 +177,9 @@ class _LoginpgState extends State<Loginpg> {
                           height: 50,
                           width: 170,
                           child: Card(
-                            color: snapshot.hasError || !snapshot.hasData ? Colors.grey.shade600 : CustomTheme.Blue1,
+                            color: snapshot.hasError || !snapshot.hasData ?
+                            Colors.grey.shade600
+                                : CustomTheme.Grey2,
                             elevation: 5,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5),
@@ -241,7 +243,7 @@ class _LoginpgState extends State<Loginpg> {
                   width: 170,
                   margin: const EdgeInsets.only(top: 5),
                   child: Card(
-                    color: CustomTheme.Blue1,
+                    color: CustomTheme.Grey2,
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),

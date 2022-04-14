@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:student_ui/NEW/BLoC/Signup_BloC.dart';
-import 'package:student_ui/NEW/theme.dart';
+import 'package:student_ui/NEW/Screens/Registration/Login.dart';
+import '../../theme.dart';
 import '../Home/Home.dart';
-import 'Login.dart';
 
 class Signuppg extends StatefulWidget {
   @override
@@ -28,17 +28,17 @@ class _SignuppgState extends State<Signuppg> {
 
     return new WillPopScope(
       child: Scaffold(
-        backgroundColor: CustomTheme.Blue4,
+        backgroundColor: Colors.white,
         body: Container(
           margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.only(top: 110),
+                  margin: const EdgeInsets.only(top: 200),
                   padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: CustomTheme.Coral3,
                     borderRadius: BorderRadius.circular(5),
                     // border: Border.all(color: CustomTheme.Blue1),
                   ),
@@ -46,7 +46,7 @@ class _SignuppgState extends State<Signuppg> {
                     children: [
                       //  first name
                       StreamBuilder(
-                        stream: bloc.Name,
+                        stream: bloc.fName,
                         builder: (context, AsyncSnapshot snapshot) => Card(
                           elevation: 0,
                           margin: const EdgeInsets.only(bottom: 15),
@@ -55,7 +55,7 @@ class _SignuppgState extends State<Signuppg> {
                           ),
                           child: TextFormField(
                             controller: fnameController,
-                            onChanged: bloc.changeName,
+                            onChanged: bloc.changeFName,
                             cursorColor: CustomTheme.Blue1,
                             keyboardType: TextInputType.name,
                             style: TextStyle(
@@ -69,13 +69,13 @@ class _SignuppgState extends State<Signuppg> {
                               contentPadding: EdgeInsets.only(left: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -87,7 +87,7 @@ class _SignuppgState extends State<Signuppg> {
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Coral1,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -98,7 +98,7 @@ class _SignuppgState extends State<Signuppg> {
 
                       //  last name
                       StreamBuilder(
-                        stream: bloc.Name,
+                        stream: bloc.lName,
                         builder: (context, AsyncSnapshot snapshot) => Card(
                           elevation: 0,
                           margin: const EdgeInsets.only(bottom: 15),
@@ -107,7 +107,7 @@ class _SignuppgState extends State<Signuppg> {
                           ),
                           child: TextFormField(
                             controller: lnameController,
-                            onChanged: bloc.changeName,
+                            onChanged: bloc.changeLName,
                             cursorColor: CustomTheme.Blue1,
                             keyboardType: TextInputType.name,
                             style: TextStyle(
@@ -121,25 +121,19 @@ class _SignuppgState extends State<Signuppg> {
                               contentPadding: EdgeInsets.only(left: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
+                                  color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -173,13 +167,13 @@ class _SignuppgState extends State<Signuppg> {
                               contentPadding: EdgeInsets.only(left: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -191,7 +185,7 @@ class _SignuppgState extends State<Signuppg> {
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -211,7 +205,7 @@ class _SignuppgState extends State<Signuppg> {
                           ),
                           child: TextFormField(
                             controller: pswdController,
-                            onChanged: (value) => bloc.changeSpswd,
+                            onChanged: bloc.changeSpswd,
                             cursorColor: CustomTheme.Blue1,
                             obscureText: _isObscure1,
                             keyboardType: TextInputType.visiblePassword,
@@ -226,13 +220,13 @@ class _SignuppgState extends State<Signuppg> {
                               contentPadding: EdgeInsets.only(left: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: Colors.transparent,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -244,7 +238,7 @@ class _SignuppgState extends State<Signuppg> {
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: CustomTheme.Blue1,
+                                  color: CustomTheme.Grey2,
                                 ),
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -270,7 +264,9 @@ class _SignuppgState extends State<Signuppg> {
                             width: 170,
                             // margin: const EdgeInsets.only(top: 150),
                             child: Card(
-                              color: snapshot.hasError || !snapshot.hasData ? Colors.grey.shade600 : CustomTheme.Blue1,
+                              color: snapshot.hasError || !snapshot.hasData ?
+                              Colors.grey.shade600
+                                  : CustomTheme.Grey2,
                               elevation: 5,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
@@ -318,7 +314,7 @@ class _SignuppgState extends State<Signuppg> {
                   width: 170,
                   margin: const EdgeInsets.only(top: 5),
                   child: Card(
-                    color: CustomTheme.Blue1,
+                    color: CustomTheme.Grey2,
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),

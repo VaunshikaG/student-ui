@@ -5,58 +5,41 @@ import 'package:student_ui/NEW/BLoC/Validators.dart';
 
 class SignupBLoC with Validators{
   //  stream controllers
-  final _Name = BehaviorSubject<String>();
-  final _Mob = BehaviorSubject<String>();
+  final _fName = BehaviorSubject<String>();
+  final _lName = BehaviorSubject<String>();
   final _sEmail = BehaviorSubject<String>();
   final _sPswd = BehaviorSubject<String>();
-  final _ConfirmPswd = BehaviorSubject<String>();
 
   //  getters
-  Stream<String> get Name => _Name.stream.transform(nameValidator);
-  Stream<String> get Mob => _Mob.stream.transform(mobValidator);
+  Stream<String> get fName => _fName.stream.transform(nameValidator);
+  Stream<String> get lName => _lName.stream.transform(nameValidator);
   Stream<String> get signupEmail => _sEmail.stream.transform(emailValidator);
   Stream<String> get signupPswd => _sPswd.stream.transform(signupPswdValidator);
-  Stream<String> get signupConfirmPswd => _ConfirmPswd.stream.transform(signupPswdValidator);
 
-  Stream<bool> get isValid => Rx.combineLatest5(Name, Mob, signupEmail, signupPswd, signupConfirmPswd, (a, b, c, d, e) => true);
-  
-  Stream<bool> get matchPswd => Rx.combineLatest2(signupPswd, signupConfirmPswd, (a, b) {
-    if(a != b) {
-      return false;
-    } else {
-      return true;
-    }
-  });
+  Stream<bool> get isValid => Rx.combineLatest4(fName, lName, _sEmail,_sPswd, (a, b, c, d) => true);
 
 
   // setters
-  Function(String) get changeName => _Name.sink.add;
-  Function(String) get changeMob => _Mob.sink.add;
+  Function(String) get changeFName => _fName.sink.add;
+  Function(String) get changeLName => _lName.sink.add;
   Function(String) get changeSemail => _sEmail.sink.add;
   Function(String) get changeSpswd => _sPswd.sink.add;
-  Function(String) get changeConfirmpswd => _ConfirmPswd.sink.add;
 
 
   //Submit
   void submit() {
-    if (signupPswd != signupConfirmPswd) {
-      _ConfirmPswd.sink.addError("Password doesn't match");
-    } else {
       //TODO: CALL API
-      print(_Name);
-      print(_Mob);
+      print(_fName);
+      print(_lName);
       print(_sEmail);
       print(_sPswd);
-      print(_ConfirmPswd);
-    }
   }
 
   void dispose() {
-    _Name.close();
-    _Mob.close();
+    _fName.close();
+    _lName.close();
     _sEmail.close();
     _sPswd.close();
-    _ConfirmPswd.close();
   }
 }
 
