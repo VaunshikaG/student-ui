@@ -34,238 +34,254 @@ class _SignuppgState extends State<Signuppg> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Container(
+                Card(
+                  elevation: 5,
                   margin: const EdgeInsets.only(top: 200),
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
-                  decoration: BoxDecoration(
-                    color: CustomTheme.Coral3,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
-                    // border: Border.all(color: CustomTheme.Blue1),
+                    side: BorderSide(color: CustomTheme.Coral1),
                   ),
-                  child: Column(
-                    children: [
-                      //  first name
-                      StreamBuilder(
-                        stream: bloc.fName,
-                        builder: (context, AsyncSnapshot snapshot) => Card(
-                          elevation: 0,
-                          margin: const EdgeInsets.only(bottom: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: TextFormField(
-                            controller: fnameController,
-                            onChanged: bloc.changeFName,
-                            cursorColor: CustomTheme.Blue1,
-                            keyboardType: TextInputType.name,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
+                    decoration: BoxDecoration(
+                      color: CustomTheme.Coral3,
+                      borderRadius: BorderRadius.circular(5),
+                      // border: Border.all(color: CustomTheme.Blue1),
+                    ),
+                    child: Column(
+                      children: [
+                        //  first name
+                        StreamBuilder(
+                          stream: bloc.fName,
+                          builder: (context, AsyncSnapshot snapshot) => Card(
+                            elevation: 0,
+                            margin: const EdgeInsets.only(bottom: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
                             ),
-                            decoration: InputDecoration(
-                              hintText: 'First name',
-                              errorText: snapshot.error,
-                              errorStyle: TextStyle(fontWeight: FontWeight.bold),
-                              contentPadding: EdgeInsets.only(left: 20),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
+                            child: TextFormField(
+                              controller: fnameController,
+                              onChanged: bloc.changeFName,
+                              cursorColor: CustomTheme.Blue1,
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
+                              decoration: InputDecoration(
+                                hintText: 'First name',
+                                errorText: snapshot.error,
+                                errorStyle:
+                                TextStyle(fontWeight: FontWeight.bold),
+                                contentPadding: EdgeInsets.only(left: 20),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Coral1,
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      //  last name
-                      StreamBuilder(
-                        stream: bloc.lName,
-                        builder: (context, AsyncSnapshot snapshot) => Card(
-                          elevation: 0,
-                          margin: const EdgeInsets.only(bottom: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: TextFormField(
-                            controller: lnameController,
-                            onChanged: bloc.changeLName,
-                            cursorColor: CustomTheme.Blue1,
-                            keyboardType: TextInputType.name,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            decoration: InputDecoration(
-                              hintText: 'Last name',
-                              errorText: snapshot.error,
-                              errorStyle: TextStyle(fontWeight: FontWeight.bold),
-                              contentPadding: EdgeInsets.only(left: 20),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
                               ),
                             ),
                           ),
                         ),
-                      ),
 
-                      //  email
-                      StreamBuilder(
-                        stream: bloc.signupEmail,
-                        builder: (context, AsyncSnapshot snapshot) => Card(
-                          elevation: 0,
-                          margin: const EdgeInsets.only(bottom: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: TextFormField(
-                            controller: emailController,
-                            onChanged: bloc.changeSemail,
-                            cursorColor: CustomTheme.Blue1,
-                            keyboardType: TextInputType.emailAddress,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                        //  last name
+                        StreamBuilder(
+                          stream: bloc.lName,
+                          builder: (context, AsyncSnapshot snapshot) => Card(
+                            elevation: 0,
+                            margin: const EdgeInsets.only(bottom: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
                             ),
-                            decoration: InputDecoration(
-                              hintText: 'Email',
-                              errorText: snapshot.error,
-                              errorStyle: TextStyle(fontWeight: FontWeight.bold),
-                              contentPadding: EdgeInsets.only(left: 20),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
+                            child: TextFormField(
+                              controller: lnameController,
+                              onChanged: bloc.changeLName,
+                              cursorColor: CustomTheme.Blue1,
+                              keyboardType: TextInputType.name,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
+                              decoration: InputDecoration(
+                                hintText: 'Last name',
+                                errorText: snapshot.error,
+                                errorStyle:
+                                TextStyle(fontWeight: FontWeight.bold),
+                                contentPadding: EdgeInsets.only(left: 20),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
 
-                      //  password
-                      StreamBuilder(
-                        stream: bloc.signupPswd,
-                        builder: (context, AsyncSnapshot snapshot) => Card(
-                          elevation: 0,
-                          margin: const EdgeInsets.only(bottom: 15),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: TextFormField(
-                            controller: pswdController,
-                            onChanged: bloc.changeSpswd,
-                            cursorColor: CustomTheme.Blue1,
-                            obscureText: _isObscure1,
-                            keyboardType: TextInputType.visiblePassword,
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
+                        //  email
+                        StreamBuilder(
+                          stream: bloc.signupEmail,
+                          builder: (context, AsyncSnapshot snapshot) => Card(
+                            elevation: 0,
+                            margin: const EdgeInsets.only(bottom: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
                             ),
-                            decoration: InputDecoration(
-                              hintText: 'Password',
-                              errorText: snapshot.error,
-                              errorStyle: TextStyle(fontWeight: FontWeight.bold),
-                              contentPadding: EdgeInsets.only(left: 20),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
+                            child: TextFormField(
+                              controller: emailController,
+                              onChanged: bloc.changeSemail,
+                              cursorColor: CustomTheme.Blue1,
+                              keyboardType: TextInputType.emailAddress,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
+                              decoration: InputDecoration(
+                                hintText: 'Email',
+                                errorText: snapshot.error,
+                                errorStyle:
+                                TextStyle(fontWeight: FontWeight.bold),
+                                contentPadding: EdgeInsets.only(left: 20),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.red,
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: CustomTheme.Grey2,
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
-                                borderRadius: BorderRadius.circular(5),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
                               ),
-                              suffixIcon: IconButton(
-                                  icon: Icon(_isObscure1
-                                      ? Icons.visibility_off
-                                      : Icons.visibility),
-                                  onPressed: () {
-                                    setState(() {
-                                      _isObscure1 = !_isObscure1;
-                                    });
-                                  }),
                             ),
                           ),
                         ),
-                      ),
 
-                      //  sign up btn
-                      StreamBuilder(
+                        //  password
+                        StreamBuilder(
+                          stream: bloc.signupPswd,
+                          builder: (context, AsyncSnapshot snapshot) => Card(
+                            elevation: 0,
+                            margin: const EdgeInsets.only(bottom: 15),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: TextFormField(
+                              controller: pswdController,
+                              onChanged: bloc.changeSpswd,
+                              cursorColor: CustomTheme.Blue1,
+                              obscureText: _isObscure1,
+                              keyboardType: TextInputType.visiblePassword,
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              decoration: InputDecoration(
+                                hintText: 'Password',
+                                errorText: snapshot.error,
+                                errorStyle:
+                                TextStyle(fontWeight: FontWeight.bold),
+                                contentPadding: EdgeInsets.only(left: 20),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: CustomTheme.Grey2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                suffixIcon: IconButton(
+                                    icon: Icon(_isObscure1
+                                        ? Icons.visibility_off
+                                        : Icons.visibility),
+                                    onPressed: () {
+                                      setState(() {
+                                        _isObscure1 = !_isObscure1;
+                                      });
+                                    }),
+                              ),
+                            ),
+                          ),
+                        ),
+
+                        //  sign up btn
+                        StreamBuilder(
                           stream: bloc.isValid,
                           builder: (context, AsyncSnapshot snapshot) => Container(
                             height: 50,
                             width: 170,
                             // margin: const EdgeInsets.only(top: 150),
                             child: Card(
-                              color: snapshot.hasError || !snapshot.hasData ?
-                              Colors.grey.shade600
+                              color: snapshot.hasError || !snapshot.hasData
+                                  ? Colors.grey.shade600
                                   : CustomTheme.Grey2,
                               elevation: 5,
                               shape: RoundedRectangleBorder(
@@ -273,9 +289,12 @@ class _SignuppgState extends State<Signuppg> {
                                 // side: BorderSide(color: CustomTheme.Blue3),
                               ),
                               child: MaterialButton(
-                                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 40, vertical: 0),
                                 elevation: 5,
-                                onPressed: snapshot.hasError || !snapshot.hasData  ? null : () async {
+                                onPressed: snapshot.hasError || !snapshot.hasData
+                                    ? null
+                                    : () async {
                                   bloc.submit();
                                   Navigator.pushReplacement(context,
                                       MaterialPageRoute(builder: (context) {
@@ -293,8 +312,9 @@ class _SignuppgState extends State<Signuppg> {
                               ),
                             ),
                           ),
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
@@ -303,10 +323,7 @@ class _SignuppgState extends State<Signuppg> {
                   padding: const EdgeInsets.only(top: 80),
                   child: Text(
                     'Already have an account',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold
-                    ),
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Container(
@@ -327,8 +344,8 @@ class _SignuppgState extends State<Signuppg> {
                       onPressed: () {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
-                              return Loginpg();
-                            }));
+                          return Loginpg();
+                        }));
                       },
                       child: Text(
                         'Login >',
@@ -346,8 +363,8 @@ class _SignuppgState extends State<Signuppg> {
           ),
         ),
       ),
-      onWillPop: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => Loginpg())),
+      onWillPop: () => Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Loginpg())),
     );
   }
 }

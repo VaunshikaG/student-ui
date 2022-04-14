@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'New Demo',
         theme: ThemeData(fontFamily: 'Nunito'),
         home: SplashScreenView(
           navigateRoute: Loginpg(),
